@@ -1,6 +1,5 @@
 #include<stdio.h>
 #include<stdlib.h>
-#pragma warning(disable:4996)
 
 void fun(int n)
 {
@@ -23,7 +22,7 @@ void fun(int n)
 int t10main()
 {
 	int i = 1, k=0;
-	printf("ÍêÊıÓĞ:\n");
+	printf("ÃÃªÃŠÃ½Ã“Ã:\n");
 
 	for (int n = 2; n <= 1000; n++)
 	{
