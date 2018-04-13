@@ -5,7 +5,6 @@
 int i[4] = {1,2,3,4};
 int t1main()
 {
-	
 	for (int a = 0; a < 4; a++)
 	{
 		for (int b = 0; b < 4; b++)
