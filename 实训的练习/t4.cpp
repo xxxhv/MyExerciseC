@@ -1,9 +1,8 @@
 #include<stdio.h>
 #include<stdlib.h>
-#pragma warning(disable:4996)
 
 
-int t4main()
+int main()
 {
 	for (int i = 1; i < 10; i++)
 	{
