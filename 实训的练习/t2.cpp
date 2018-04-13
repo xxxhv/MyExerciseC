@@ -1,13 +1,10 @@
 #include<stdio.h>
 #include<stdlib.h>
-#pragma warning(disable:4996)
-
-
-int t2main()
+int main()
 {
 	int year = 2000, month = 1, day = 1, sum = 0;
 	int m[12] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
-	printf("\nÇëÊäÈë XXÄêXXÔÂXXÈÕ £º");
+	printf("\nè¯·è¾“å…¥ XXå¹´XXæœˆXXæ—¥ ï¼š");
 	scanf("%d %d %d", &year, &month, &day);
 	if (year % 4 == 0)
 	{
@@ -22,7 +19,7 @@ int t2main()
 		sum += m[1];
 	}
 	sum += day;
-	printf("ÕâÊÇµÚ %d Ìì",sum);
+	printf("è¿™æ˜¯ç¬¬ %d å¤©",sum);
 	system("pause");
 	return 0;
 }
