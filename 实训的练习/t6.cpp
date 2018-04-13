@@ -1,9 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
-#pragma warning(disable:4996)
 
-
-int t6main()
+int main()
 {
 	int a = 0;
 	for (int i = 101; i <= 200; i++)
