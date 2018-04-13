@@ -1,11 +1,10 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-#pragma warning(disable:4996)
 
 
 
-int t9main()
+int main()
 {
 	char c[50];
 	int i, el = 0, sp = 0, nu = 0, other = 0;
