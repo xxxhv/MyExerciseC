@@ -1,6 +1,5 @@
 #include<stdio.h>
 #include<stdlib.h>
-#pragma warning(disable:4996)
 
 int ts[3] = { 1,0,0 }, tb = 0, s;
 void fun()
@@ -12,15 +11,15 @@ void fun()
 	ts[1] = s;
 }
 
-int t5main()
+int main()
 {
 	for (int i = 1; i <= 40; i++)
 	{
 		fun();
-		printf("%d月后兔子有%d\n" , i, ts[0] + ts[1] + ts[2] + tb);
+		printf("%d脭脗潞贸脥脙脳脫脫脨%d\n" , i, ts[0] + ts[1] + ts[2] + tb);
 	}
 
-	printf("40月后兔子有%d\n", ts[0] + ts[1] + ts[2] + tb);
+	printf("40脭脗潞贸脥脙脳脫脫脨%d\n", ts[0] + ts[1] + ts[2] + tb);
 	system("pause");
 	return 0;
 }
