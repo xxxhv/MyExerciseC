@@ -1,7 +1,5 @@
 #include<stdio.h>
 #include<stdlib.h>
-#pragma warning(disable:4996)
-
 bool f(int x)
 {
 	int a, b, c;
@@ -18,7 +16,7 @@ bool f(int x)
 	}
 }
 
-int t7main()
+int main()
 {
 	for (int i = 100; i < 1000; i++)
 	{
