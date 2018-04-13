@@ -1,13 +1,12 @@
 #include<stdio.h>
 #include<stdlib.h>
-#pragma warning(disable:4996)
 
 
 
-int t8main()
+int main()
 {
 	int i = 1;
-	printf("输入一个数:\n");
+	printf("脢盲脠毛脪禄赂枚脢媒:\n");
 	scanf("%d", &i);
 	printf("%d =", i);
 	for (int a = 1; a <= i; a++)
