@@ -1,10 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
-#pragma warning(disable:4996)
-
-
-
-int t12Smain()
+int main()
 {
 	int n = 1;
 	for (int i = 1; i <= 10; i++)
