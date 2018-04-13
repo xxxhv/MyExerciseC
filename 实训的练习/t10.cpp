@@ -19,7 +19,7 @@ void fun(int n)
 	}
 }
 
-int t10main()
+int main()
 {
 	int i = 1, k=0;
 	printf("ÍêÊýÓÐ:\n");
@@ -28,7 +28,6 @@ int t10main()
 	{
 		fun(n);
 	}
-	
 	system("pause");
 	return 0;
 }
