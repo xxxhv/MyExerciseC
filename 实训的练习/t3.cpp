@@ -1,9 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
-#pragma warning(disable:4996)
-
 int i = 0, j = 0, k = 0;
-int t3main()
+int main()
 {
 	int a=0;
 	scanf("%d %d %d", &i, &j, &k);
