@@ -1,0 +1,115 @@
+#include <windows.h>
+#include <math.h>
+#include <iostream>
+using namespace std;
+#define PI 3.14159265358979323846
+
+class cFigure //纯虚函数 形状
+{
+public:
+	virtual char* FigureType() = 0;
+	virtual double Circumference() = 0;
+	virtual double Area() = 0;
+	virtual ~cFigure(){}
+};
+
+class cTriangle :public cFigure
+{
+private:
+	double a, b, c;
+public:
+	cTriangle()
+	{
+		a = b = c = 0;
+	}
+	cTriangle(double a,double b,double c):a(a),b(b),c(c)
+	{
+		if (a + b < c || a + c < b || b + c < a)
+		{
+			printf("len error \n");
+			a = b = c = 0;
+		}
+	}
+	virtual char* FigureType()
+	{
+		return "Triangle";
+	}
+	virtual double Circumference()
+	{
+		return a + b + c;
+	}
+	virtual double Area()
+	{
+		double S = Circumference() / 2;
+		return sqrt(S*(S - a)*(S - b)*(S - c));
+	}
+};
+
+class cSquare :public cFigure
+{
+private:
+	double a, b;
+public:
+	cSquare()
+	{
+		a = b = 0;
+	}
+	cSquare(double a,double b):a(a),b(b){}
+	virtual char* FigureType()
+	{
+		return "Square";
+	}
+	virtual double Circumference()
+	{
+		return 2 * a + 2 * b;
+	}
+	virtual double Area()
+	{
+		return a*b;
+	}
+};
+
+class cCircle :public cFigure
+{
+private:
+	double r;
+public:
+	cCircle()
+	{
+		r = 0;
+	}
+	cCircle(double r):r(r){}
+	virtual char* FigureType()
+	{
+		return "Circle";
+	}
+	virtual double Circumference()
+	{
+		return 2 * r*PI;
+	}
+	virtual double Area()
+	{
+		return r*r*PI;
+	}
+};
+
+
+
+
+
+
+int main()
+{
+	cFigure* figure[3];
+	figure[0] = new cTriangle(2.1, 3.2, 4.4);
+	figure[1] = new cSquare(5.2, 4.2);
+	figure[2] = new cCircle(2.6);
+	for (int i = 0; i < 3; i++)
+	{
+		cout << "Figure Type is: " << figure[i]->FigureType()
+			<< "\nCircumference is: " << figure[i]->Circumference()
+			<< "\nArea is: " << figure[i]->Area() << endl;
+	}
+	system("pause");
+	return 0;
+}
