@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string>
+//程序的内存分配
+//程序代码区
+//文字常量区
+//全局区 静态区
+//栈区
+//堆区
+
+int a = 0;//全局初始化区
+char *p1;//全局未初始化区
+
+int main()
+{
+	int b;                        //栈区
+	char s[] = "aaa";             //栈区(运行时大小固定)(一般默认1M)
+	char *p2;
+	char *p3 = "213123";          //p3栈区 123123文字常量区
+	static int c = 0;             //静态初始化区
+	//默认堆(每个进程都有的)
+	p1 = (char*)malloc(10);       //在堆区分配了10字节 p1指向分配的内存
+	p2 = (char*)malloc(20);
+	//也可以创建新的堆
+	//HeapCreate HeapAlloc
+	strcpy(p1, "213123");
+
+	return system("pause");
+}
