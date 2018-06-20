@@ -1,0 +1,19 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+
+//char* tmpname(char* pszName);  建立临时不重复文件名
+int main()
+{
+	cout << "This system can generate up to " << TMP_MAX << " temporary name of up to " << L_tmpnam << " characters.\n ";
+	char pszName[ L_tmpnam ] = { '\0' };
+	cout << "Here are ten names:\n";
+
+	for (int i = 0; i < 10; i++)
+	{
+		tmpnam(pszName);
+		cout << pszName << endl;
+	}
+	return system("pause");
+}
