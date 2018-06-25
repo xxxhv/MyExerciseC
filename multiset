@@ -1,0 +1,84 @@
+#include <iostream>
+#include <set>
+
+using namespace std;
+//关联容器 set multiset map multimap
+
+template <class T>
+void Print(T frist, T last)
+{
+	for (; frist != last; ++frist)
+	{
+		cout << *frist << " ";
+	}
+	cout << endl;
+}
+class A
+{
+private:
+	int n;
+public:
+	A(int _n) { n = _n; }
+	friend bool operator<(const A&a1, const A&a2) 
+	{ 
+		return a1.n < a2.n; 
+	}
+	friend ostream&operator<<(ostream & o, const A&a2) 
+	{ 
+		o << a2.n; 
+		return o; 
+	}
+	friend class MyLess;
+};
+
+//函数对象类 ()比较大小的规则
+struct MyLess
+{
+	bool operator()(const A&a1, const A&a2)
+	{
+		return (a1.n % 10) < (a2.n % 10);
+	}
+};
+typedef multiset<A> MSET1;            //用<比大小
+typedef multiset<A, MyLess> MSET2;    //用MyLess::operator() 比大小
+
+
+int main()
+{
+	const int SIZE = 6;
+	A a[SIZE] = { 3,59,23,2,77,81 };
+	MSET1 m1;
+	m1.insert(a, a + SIZE);
+	m1.insert(22);
+	cout << "1)" << m1.count(22) << endl;
+	cout << "2)";
+	Print(m1.begin(), m1.end());
+	//m1 element  2 3 22 23 59 77 81
+	MSET1::iterator pp = m1.find(23);
+	if (pp != m1.end())
+	{
+		cout << "found" << endl;
+	}
+	cout << "3)";
+	cout << *m1.lower_bound(23) << "," << *m1.upper_bound(23) << endl;
+	//23 59
+	pp = m1.erase(m1.lower_bound(23), m1.upper_bound(23));
+	//pp指向被删元素是下一个元素
+	cout << "4)";
+	Print(m1.begin(), m1.end());
+	//2 3 22 59 77 81
+	cout << "5)";
+	cout << *pp << endl;
+	//59
+	MSET2 m2;
+	m2.insert(a, a + SIZE);
+	cout << "6)";
+	Print(m2.begin(), m2.end());
+	//81 2 3 23 77 59
+
+	system("pause");
+	return 0;
+}
+
+
+
