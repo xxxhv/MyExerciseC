@@ -1,0 +1,67 @@
+#include <iostream>
+#include <map>
+#include <string>
+
+using namespace std;
+
+class CStd
+{
+public:
+	struct CInfo//类内部的类
+	{
+		int id;
+		string name;
+	};
+	int score;
+	CInfo info;
+};
+typedef multimap<int, CStd::CInfo>MAP_STD;//类型MAP_STD学生的map容器 元素是pair类模版的对象
+
+int main()
+{
+	MAP_STD mp;
+	CStd st;
+	string cmd;
+	while(cin >> cmd)
+	{
+		if (cmd == "Add")
+		{
+			cin >> st.info.name >> st.info.id >> st.score;
+			mp.insert(MAP_STD::value_type(st.score, st.info));
+		}
+		else if (cmd == "Query")
+		{
+			int score;
+			cin >> score;
+			MAP_STD::iterator p = mp.lower_bound(score);//iterator lower_bound(const T&val);
+			if (p != mp.begin())
+			{
+				--p;
+				score = p->first;
+				MAP_STD::iterator maxp = p;
+				int maxld = p->second.id;
+				for (; p != mp.begin() && p->first == score; --p)
+				{
+					if (p->second.id > maxld)
+					{
+						maxp = p;
+						maxld = p->second.id;
+					}
+				}
+				if (p->first == score)
+				{
+					if (p->second.id > maxld)
+					{
+						maxp = p;
+						maxld = p->second.id;
+					}
+				}
+				cout << maxp->second.name << " " << maxp->second.id << " " << maxp->first << endl;
+			}
+			else
+				cout << "Nobody" << endl;
+		}
+	}
+	
+	return system("pause");
+}
