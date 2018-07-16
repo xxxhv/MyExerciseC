@@ -1,0 +1,26 @@
+#include <iostream>
+#include <map>
+
+using namespace std;
+
+int main()
+{
+	typedef multimap<int, double, less<int>>mmid;
+	mmid pairs;
+	cout << "1) " << pairs.count(15) << endl;
+	pairs.insert(mmid::value_type(15, 2.7));//插入的值是pairs的一个模版对象
+	pairs.insert(mmid::value_type(15, 25.7));
+	cout << "2) " << pairs.count(15) << endl;
+
+	pairs.insert(mmid::value_type(30, 21.2));
+	pairs.insert(mmid::value_type(10, 22.2));
+	pairs.insert(mmid::value_type(32, 1.1));
+	pairs.insert(mmid::value_type(23, 66.66));
+	//i是迭代器
+	for (mmid::const_iterator i = pairs.begin(); i != pairs.end(); i++)
+	{
+		cout << "(" << i->first << "," << i->second << ")" << ",";
+	}
+
+	return system("pause");
+}
